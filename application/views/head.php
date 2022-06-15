@@ -15,9 +15,9 @@
     <!-- Jquery v3.3.1 -->
     <script src="<?= base_url('assets/jquery/jquery-3.3.1.min.js') ?>"></script>
     <script src="<?= base_url('assets/jquery-validate/jquery.validate.min.js') ?>"></script>
-    <!-- Bootstrap v4.3.1-->
-    <link rel="stylesheet" href="<?= base_url('assets/bootstrap4/css/bootstrap.min.css') ?>">
-    <script src="<?= base_url('assets/bootstrap4/js/bootstrap.min.js') ?>"></script>
+    <!-- Bootstrap v5.1.0-->
+    <link rel="stylesheet" href="<?= base_url('assets/bootstrap5/css/bootstrap.min.css') ?>">
+    <script src="<?= base_url('assets/bootstrap5/js/bootstrap.min.js') ?>"></script>
     <!-- Estilos generales -->
     <link rel="stylesheet" href="<?= base_url('estilos/general.css') ?>">
     <!-- FontAwesome v4.7.0-->

@@ -1,35 +1,33 @@
 <?php $this->load->view('head'); ?>
-<link rel="stylesheet" href="<?= base_url("estilos/login.css")?>">
-<div class="main-bg">
-    <div class="login-container text-c animated flipInX">
-        <div>
-            <img src="imagenes/Logo.jpg" width="200" height="200" class="d-inline-block align-top"
-                alt=""> </div>
-        <h3 class="text-whitesmoke" style="color:red;">Control Escolar</h3>
-        <p class="text-whitesmoke"></p>
-            <form class="margin-t" id="login-form">
-                <div class="form-group">
-                    <input id="usuario" name="usuario" type="email" class="form-control" placeholder="Usuario" autocomplete="off"
-                        required />
-                </div>
-                <div class="form-group">
-                    <input id="pass" name="password" type="password" class="form-control" placeholder="*****" autocomplete="off"
-                        required />
-                </div>
-               <!--  <div class="form-group">
-                    <select class="form-control" id="rol">
-                        <option value="-1">Rol</option>
-                        <?php if(isset($roles)){ ?>
-                        <?php foreach($roles as $rol) { ?>
-                        <option value="<?php echo $rol['id_rol'] ?>"><?php echo $rol['nombreRol'] ?></option>
-                        <?php } ?>
-                        <?php } ?>
-                    </select>
-                </div> -->
-                <button type="submit" class="form-button button-l margin-b" id="btn-login">Iniciar Sesión</button>
+<link rel="stylesheet" href="<?= base_url("estilos/login.css") ?>">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card border-0 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5">
+                    <div>
+                        <img class="rounded mx-auto d-block" src="<?= base_url("imagenes/logo.png") ?>" alt="H. Ayuntamiento">
+                    </div>
+                    <h5 class="card-title text-center mb-5 fw-light fs-5">Sistema de Compras</h5>
+                    <form id="login-form">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="usuario" placeholder="name@example.com">
+                            <label for="floatingInput">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="pass" placeholder="Password">
+                            <label for="floatingPassword">Contraseña</label>
+                        </div>
 
-            </form>
-            <p class="margin-t text-whitesmoke"><small>&copy; 2021</small> </p>
+
+                        <div class="d-grid">
+                            <button class="btn btn-dark btn-login text-uppercase fw-bold" type="submit">
+                                Acceder</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script src="<?= base_url('assets/scripts/login.js') ?>"></script>
