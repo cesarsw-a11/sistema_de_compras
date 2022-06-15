@@ -8,10 +8,10 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-s
+
 
     <!-- Title -->
-    <title>Control Escolar Tecnica 22</title>
+    <title>Sistema de Compras</title>
     <!-- Jquery v3.3.1 -->
     <script src="<?= base_url('assets/jquery/jquery-3.3.1.min.js') ?>"></script>
     <script src="<?= base_url('assets/jquery-validate/jquery.validate.min.js') ?>"></script>
