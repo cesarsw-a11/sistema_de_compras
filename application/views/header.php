@@ -12,7 +12,7 @@
         <?php } ?>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a class="nav-link" href="<?= base_url('login/logout') ?>"><span class="glyphicon glyphicon-ok"></span>Cerrar Sesión</a></li>
+            <li><a class="nav-link" href="<?= base_url('login/logout') ?>"><span class="fa fa-sign-out"></span>Cerrar Sesión</a></li>
         </ul>
     </div>
 </nav>
