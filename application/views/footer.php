@@ -11,7 +11,7 @@
 
               <div class="col-md-4 col-sm-6 col-xs-12">
                   <ul class="social-icons">
-                      <li><a target="_blank" href="https://www.facebook.com/groups/692122794229376" class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a target="_blank" href="" class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                       <!-- <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                       <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
                       <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li> -->
