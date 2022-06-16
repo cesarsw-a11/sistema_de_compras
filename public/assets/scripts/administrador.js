@@ -1,5 +1,5 @@
 'use strict'
-const botonGuardarNuevaMateria = `<button type="submit" class="btn btn-primary">Guardar</button>`
+const botonGuardarNuevaOrden = `<button type="submit" class="btn btn-primary">Guardar</button>`
 const botonGuardarCambios = `<button type="button" class="btn btn-primary" onclick="guardarCambiosEditar()">Guardar</button>`
 const botonCerrarModal = `<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>`
 const nombreFormulario = $("form").attr("id");
@@ -12,50 +12,13 @@ $(document).ready(() => {
         e.preventDefault();
 
         var formData = new FormData(this);
-        mandarFormularioConFoto(formData)
+        mandarFormulario(formData)
 
         return true;
     });
 });
 
-//Función para validar una CURP
-function curpValida(curp) {
-    var re = /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/,
-        validado = curp.match(re);
-
-    if (!validado)  //Coincide con el formato general?
-        return false;
-
-    //Validar que coincida el dígito verificador
-    function digitoVerificador(curp17) {
-        //Fuente https://consultas.curp.gob.mx/CurpSP/
-        var diccionario = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ",
-            lngSuma = 0.0,
-            lngDigito = 0.0;
-        for (var i = 0; i < 17; i++)
-            lngSuma = lngSuma + diccionario.indexOf(curp17.charAt(i)) * (18 - i);
-        lngDigito = 10 - lngSuma % 10;
-        if (lngDigito == 10) return 0;
-        return lngDigito;
-    }
-
-    if (validado[2] != digitoVerificador(validado[1]))
-        return false;
-
-    return true; //Validado
-}
-
-function validarTelefono(num) {
-    var re = /^\(?(\d{3})\)?[-]?(\d{3})[-]?(\d{4})$/,
-        validado = num.match(re);
-
-    if (!validado)  //Coincide con el formato general?
-        return false;
-    return true
-}
-
-
-function mandarFormularioConFoto(formData) {
+function mandarFormulario(formData) {
     //En caso de que los datos sean llenados y esten correctos del lado del cliente se mandaran al backend para validarlos
     $.ajax({
         url: base_url + 'administrador/guardarOrden',
@@ -99,24 +62,20 @@ function mandarFormularioConFoto(formData) {
 function ui_modalNuevaOrden() {
     limpiarCampos(nombreFormulario);
     $(".modal-title").html("Agregar nueva Orden de Compra")
-    $(".modal-footer").html(botonGuardarNuevaMateria + botonCerrarModal)
-    $(".changePass").hide()
-    $("#password").show()
+    $(".modal-footer").html(botonGuardarNuevaOrden + botonCerrarModal)
     $("#modalAgregarOrden").modal()
 
 }
 
 function ui_modalEditarOrden(id_orden) {
     $(".modal-footer").html(botonGuardarCambios + botonCerrarModal)
-    $(".changePass").html(`<button class="btn btn-warning" onclick=ui_mostrarCambiarContraseña(${id_orden})>Cambiar Contraseña</div>`)
     $(".modal-title").html("Editar Orden de Compra")
-    $(".changePass").show()
     $("#modalAgregarOrden").modal()
-    ui_obtenerMateria(id_orden)
+    ui_obtenerOrden(id_orden)
 
 }
 
-function ui_obtenerMateria(id_orden) {
+function ui_obtenerOrden(id_orden) {
     $.ajax({
         url: base_url + 'administrador/obtenerOrdenPorId',
         type: 'POST',
@@ -159,37 +118,10 @@ function ui_obtenerMateria(id_orden) {
 
 }
 
-function descargarPDF(id_orden){
+function descargarPDF(id_orden) {
 
-    window.location.href = base_url + "administrador/pdf/"+id_orden
-   /*  $.ajax({
-        url: base_url + 'administrador/pdf',
-        type: 'POST',
-        data: { "id": id_orden },
-        success: function (response) {
-            var data = JSON.parse(response)
-            data = data.datos
-            $("#partida").val(data.partida)
-            $("#cantidad").val(data.cantidad)
-            $("#unidad").val(data.unidad)
-            $("#descripcion").val(data.descripcion)
-            $("#precioUnitario").val(data.precioUnitario)
-            $("#rFederal").val(data.rFederal)
-            $("#rEstatal").val(data.rEstatal)
-            $("#rFiscal").val(data.rFiscal)
-            $("#importe").val(data.importe)
-            $("#iva").val(data.iva)
-            $("#idOrden").val(data.idProducto)
-        },
-        error: function (error, xhr, status) {
+    window.location.href = base_url + "administrador/pdf/" + id_orden
 
-            Swal.fire(
-                "Error",
-                "No fue posible guardar sus datos, revise su conexión.",
-                "error"
-            );
-        }
-    }); */
 }
 
 

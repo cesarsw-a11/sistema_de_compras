@@ -3,6 +3,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 use Dompdf\Dompdf;
 
+/**
+ * Clase para realizar el CRUD del administrador
+ */
 class Administrador extends CI_Controller
 {
 
@@ -14,6 +17,7 @@ class Administrador extends CI_Controller
         validarAcceso($this->session->userdata("rol"));
     }
 
+    #Mostramos el menu principal del administrador
     public function index()
     {
         $this->load->view("administrador/menuPrincipal");
@@ -35,6 +39,7 @@ class Administrador extends CI_Controller
         $datos = $this->input->post();
 
         $respuesta['insertado'] = 0;
+
         if ($datos) {
             unset($datos['idOrden']);
             $datosCompra = array(
@@ -66,6 +71,12 @@ class Administrador extends CI_Controller
         echo json_encode($respuesta);
     }
 
+/**
+ * Funcion que elimina una orden con sus productos.
+ * El orden de eliminacion es importante para no causar conflico con las llaves foraneas
+ *
+ * @return json
+ */
     public function eliminarOrden()
     {
         $idOrden = $_POST['idOrden'];

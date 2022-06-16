@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+/**
+ * Clase para realizar las acciones del login
+ */
 class Login extends CI_Controller
 {
     //Funcion que se ejecuta al cargar el archivo
@@ -14,6 +17,13 @@ class Login extends CI_Controller
         $this->load->view('login');
     }
 
+    /**
+     * Funcion que recibe los datos del usuario para acceder al portal
+     * 
+     * @param array $datos
+     * @return json
+     * @date 15-06-2022
+     */
     public function acceder()
     {
         #Armamos la respuesta
@@ -50,6 +60,13 @@ class Login extends CI_Controller
         echo json_encode($response);
     }
 
+    /**
+     * Funcion que funciona para cerrar la sesion del usuario
+     * 
+     * @param session rol
+     * @return view
+     * @date 15-06-2022
+     */
     public function logout()
     {
         header("location:" . base_url("/"));
