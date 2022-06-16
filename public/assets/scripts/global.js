@@ -1,5 +1,5 @@
 'use strict'
-//Funcion para limpiar todos los inputs al guardar un alumno
+//Funcion para limpiar todos los inputs al abrir el formulario de crear nuevo
 function limpiarCampos(nombreFormulario) {
     let tipoFormulario = $("#formulario").val()
     $("#genero").val("-1")

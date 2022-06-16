@@ -24,8 +24,6 @@
     <link rel="stylesheet" href="<?= base_url('assets/font-awesome/css/font-awesome.min.css') ?>">
 
     <!-- Sweet Alert -->
-  <!--   <link rel="stylesheet" href="<?= base_url('assets/sweet-alert/css/sweet-alert.css') ?>">
-    <script src="<?= base_url('assets/sweet-alert/js/sweet-alert.min.js') ?>"></script> -->
     <link rel="stylesheet" href="<?= base_url('assets/sweet-alert2/sweetalert2.min.css') ?>">
     <script src="<?= base_url('assets/sweet-alert2/sweetalert2.all.min.js') ?>"></script>
     <script src="<?= base_url('assets/sweet-alert2/sweetalert2.min.js') ?>"></script>
