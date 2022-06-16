@@ -4,8 +4,7 @@
       <div class="container">
           <div class="row">
               <div class="col-md-8 col-sm-6 col-xs-12">
-                  <p class="copyright-text">Copyright &copy;2022 Todos los derechos Reservados,
-                      <a href="#">H. Ayuntamiento La Huerta</a>.
+                  <p class="copyright-text">&copy;2022 H. Ayuntamiento de La Huerta, Jalisco.
                   </p>
               </div>
 
