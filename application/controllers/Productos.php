@@ -1,4 +1,7 @@
 <?php
+
+use Dompdf\Dompdf;
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Productos extends CI_Controller
@@ -9,27 +12,32 @@ class Productos extends CI_Controller
     {
         parent::__construct();
         $this->load->database();
+        validarAcceso($this->session->userdata("rol"));
     }
 
-    public function obtenerProductos()
+    
+    public function pdf()
     {
-        $obtenerProductos = "select * from productos";
-        $data['productos'] = [];
-        if ($this->db->query($obtenerProductos)) {
-            $obtenerProductos = $this->db->query($obtenerProductos)->result_array();
-            $data['productos'] = $obtenerProductos;
-        }
-        $this->load->view("welcome_message", $data);
-    }
+        $pathPDF = base_url();
+        $encabezadoVista = str_replace('{{BASE_URL}}', $pathPDF, $this->load->view("welcome_message", '', TRUE));
+        $encabezadoVista .= '<link rel="stylesheet" href="assets/bootstrap4/css/bootstrap.min.css" />';
 
-    public function guardar(){
-        $datos = $this->input->post();
-        $respuesta['status'] = 0;
-        if($datos){
-            if($this->db->insert('productos', $datos));
-            $respuesta['status'] = 1;
+        // Crear PDF con DOMPDF
+        $this->load->helper('file');
+        $this->load->library('MY_Dompdf');
+        $dompdf = new Dompdf([['isRemoteEnabled' => true]]);
+        $dompdf->setPaper("A3", "portrait");
+
+        $dompdf->loadHtml($encabezadoVista);
+        // Renderiza documento PDF
+        $dompdf->render();
+        $salida['status'] = 1;
+        //Guardar el documento renderizado en una variable
+        $output = $dompdf->output();
+        if (!$output) {
+            $salida['status'] = 0;
         }
-        echo json_encode($respuesta);
-        
+        //Guardar archivo en temporales
+        file_put_contents("temp/prueba.pdf", $output);
     }
 }

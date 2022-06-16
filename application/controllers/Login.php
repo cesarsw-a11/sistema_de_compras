@@ -49,7 +49,7 @@ class Login extends CI_Controller
         }
         echo json_encode($response);
     }
-    
+
     public function logout()
     {
         header("location:" . base_url("/"));

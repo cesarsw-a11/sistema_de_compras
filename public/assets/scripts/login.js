@@ -19,7 +19,7 @@ $(document).ready(function () {
                 success: function (response) {
                     respuesta = JSON.parse(response)
                     if (respuesta.respuesta == 1) {
-                        window.location.href = "Productos/obtenerProductos"
+                        window.location.href = "administrador"
                     } else if (respuesta.respuesta == 0) {
                         swal(
                             "Error",
