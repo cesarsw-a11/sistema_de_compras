@@ -21,7 +21,7 @@ $(document).ready(function () {
                     if (respuesta.respuesta == 1) {
                         window.location.href = "administrador"
                     } else if (respuesta.respuesta == 0) {
-                        swal(
+                        Swal.fire(
                             "Error",
                             "Favor de revisar sus datos de acceso.",
                             "error"
@@ -30,7 +30,7 @@ $(document).ready(function () {
                 },
                 error: function (error, xhr, status) {
 
-                    swal(
+                    Swal.fire(
                         "Error",
                         "No fue posible guardar sus datos, revise su conexión.",
                         "error"
