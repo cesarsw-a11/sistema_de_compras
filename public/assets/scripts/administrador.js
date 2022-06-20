@@ -231,6 +231,8 @@ function listarOrdenes() {
         // 'serverSide': true,
         'scrollY': "400px",
         'paging': true,
+        drawCallback: function () {
+            $('.paginate_button').addClass('btn btn-dark')},
         'ajax': {
             "url": base_url + "administrador/obtenerProductos",
             "type": "POST",
